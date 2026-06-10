@@ -1,6 +1,6 @@
 # Edge Terminal
 
-![Edge Terminal Preview](./assets/preview.png)
+![Edge Terminal Preview](./assets/real_preview.png)
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # Edge Terminal
 
-![Edge Terminal Preview](./assets/promax_preview.png)
+![Edge Terminal Preview](./assets/real_preview.png)
 
 ## Overview
 

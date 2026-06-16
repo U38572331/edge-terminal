@@ -3,6 +3,8 @@ import StockChart from '../components/StockChart';
 import { useLanguage } from '../contexts/LanguageContext';
 import { getRelativeDate } from '../utils/dateHelpers';
 
+import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
+
 const generateMockInsiderTrades = () => [
   { id: 1, insider: 'Tim Cook', role: 'CEO', ticker: 'AAPL', type: 'Sell', date: getRelativeDate(0), amount: '$33.2M', parsedAmount: 33200000 },
   { id: 2, insider: 'Jensen Huang', role: 'CEO', ticker: 'NVDA', type: 'Sell', date: getRelativeDate(-1), amount: '$42.5M', parsedAmount: 42500000 },
@@ -74,7 +76,7 @@ const Insider = () => {
             <p style={{ padding: '20px' }}>{t.insider.loading}</p>
           ) : (
             <table className="data-table" style={{ width: '100%' }}>
-              <thead style={{ position: 'sticky', top: 0, background: 'var(--bg-elevated)', zIndex: 1 }}>
+              <thead style={{ position: 'sticky', top: 0, background: 'var(--color-primary)', zIndex: 1 }}>
                 <tr>
                   <th>{t.insider.table.insider}</th>
                   <th>{t.insider.table.ticker}</th>
@@ -90,15 +92,20 @@ const Insider = () => {
                     onClick={() => setSelectedTrade(row)}
                     style={{ 
                       cursor: 'pointer',
-                      background: selectedTrade?.id === row.id ? 'rgba(94, 106, 210, 0.15)' : 'transparent',
-                      borderLeft: selectedTrade?.id === row.id ? '3px solid var(--accent-blue)' : '3px solid transparent'
+                      background: selectedTrade?.id === row.id ? 'var(--color-secondary)' : 'transparent',
+                      borderLeft: selectedTrade?.id === row.id ? '3px solid var(--color-on-primary)' : '3px solid transparent'
                     }}
                   >
                     <td style={{ fontWeight: 500 }}>
-                      {row.insider} <span style={{ fontSize: '0.8em', color: 'var(--text-secondary)' }}>({row.role})</span>
+                      {row.insider} <span style={{ fontSize: '0.8em', color: 'var(--color-muted-text)' }}>({row.role})</span>
                     </td>
-                    <td style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{row.ticker}</td>
-                    <td className={row.type === 'Buy' ? 'text-up' : 'text-down'} style={{ fontWeight: 600 }}>{row.type}</td>
+                    <td style={{ fontWeight: 700, color: 'var(--color-foreground)' }}>{row.ticker}</td>
+                    <td>
+                      <span className={`badge ${row.type === 'Buy' ? 'badge-up' : 'badge-down'}`}>
+                        {row.type === 'Buy' ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
+                        {row.type}
+                      </span>
+                    </td>
                     <td>{row.date}</td>
                     <td className="font-mono" style={{ fontSize: '0.95rem' }}>{row.amount}</td>
                   </tr>

@@ -1,19 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, LineChart, CalendarDays, ActivitySquare, TerminalSquare, Globe, UserCheck, Flame } from 'lucide-react';
+import { LayoutDashboard, LineChart, Calendar, TerminalSquare, Globe, Users, Activity } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Sidebar = () => {
   const { t, lang, toggleLanguage } = useLanguage();
-
-  const navItems = [
-    { path: '/dashboard', label: t.nav.dashboard, icon: <LayoutDashboard size={20} /> },
-    { path: '/insider', label: t.nav.insider, icon: <UserCheck size={20} /> },
-    { path: '/options', label: t.nav.options, icon: <Flame size={20} /> },
-    { path: '/earnings', label: t.nav.earnings, icon: <CalendarDays size={20} /> },
-    { path: '/charts', label: t.nav.charts, icon: <LineChart size={20} /> },
-    { path: '/macro', label: t.nav.macro, icon: <ActivitySquare size={20} /> },
-  ];
 
   return (
     <aside className="sidebar" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -22,16 +13,24 @@ const Sidebar = () => {
         {t.brand}
       </div>
       <nav className="sidebar-content" style={{ flex: 1 }}>
-        {navItems.map((item) => (
-          <NavLink
-            key={item.path}
-            to={item.path}
-            className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-          >
-            {item.icon}
-            {item.label}
-          </NavLink>
-        ))}
+        <NavLink to="/dashboard" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <LayoutDashboard size={20} /> {t.nav.dashboard}
+        </NavLink>
+        <NavLink to="/insider" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <Users size={20} /> {t.nav.insider}
+        </NavLink>
+        <NavLink to="/options" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <Activity size={20} /> {t.nav.options}
+        </NavLink>
+        <NavLink to="/earnings" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <Calendar size={20} /> {t.nav.earnings}
+        </NavLink>
+        <NavLink to="/charts" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <LineChart size={20} /> {t.nav.charts}
+        </NavLink>
+        <NavLink to="/macro" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <Globe size={20} /> {t.nav.macro}
+        </NavLink>
       </nav>
       <div style={{ padding: '20px', WebkitAppRegion: 'no-drag' }}>
         <button 
@@ -43,17 +42,17 @@ const Sidebar = () => {
             justifyContent: 'center',
             gap: '8px',
             padding: '10px',
-            background: 'var(--bg-elevated)',
-            color: 'var(--text-primary)',
-            border: '1px solid var(--border-color)',
-            borderRadius: '12px',
+            background: 'var(--color-secondary)',
+            color: 'var(--color-foreground)',
+            border: '1px solid var(--color-border)',
+            borderRadius: '6px',
             cursor: 'pointer',
             fontSize: '0.9rem',
             transition: 'background var(--transition-speed) var(--easing)',
             fontFamily: 'var(--font-family)',
           }}
-          onMouseOver={(e) => e.currentTarget.style.background = 'rgba(94, 106, 210, 0.2)'}
-          onMouseOut={(e) => e.currentTarget.style.background = 'var(--bg-elevated)'}
+          onMouseOver={(e) => e.currentTarget.style.background = 'var(--color-muted-bg)'}
+          onMouseOut={(e) => e.currentTarget.style.background = 'var(--color-secondary)'}
         >
           <Globe size={18} />
           {lang === 'zh' ? 'Switch to English' : '切換至中文'}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { getRelativeTime, getRandomAmount } from '../utils/dateHelpers';
+import { ArrowUpRight, ArrowDownRight, EyeOff } from 'lucide-react';
 
 const generateMockOptions = () => [
   { id: 1, time: getRelativeTime(-1), ticker: 'SPY', type: 'Dark Pool', strikeExp: '-', premium: `$${getRandomAmount(100, 200)}M`, details: 'Block Trade', isBullish: null },
@@ -53,10 +54,10 @@ const OptionsFlow = () => {
   }, []);
 
   const getTypeStyle = (type, isBullish) => {
-    if (type === 'Dark Pool') return { background: 'rgba(179, 136, 255, 0.1)', color: 'var(--accent-purple)', border: '1px solid var(--accent-purple)' };
-    if (isBullish) return { background: 'rgba(34, 197, 94, 0.1)', color: 'var(--accent-up)', border: '1px solid var(--accent-up)' };
-    if (isBullish === false) return { background: 'rgba(239, 68, 68, 0.1)', color: 'var(--accent-down)', border: '1px solid var(--accent-down)' };
-    return { background: 'var(--bg-elevated)', color: 'var(--text-primary)' };
+    if (type === 'Dark Pool') return { background: 'var(--color-muted-bg)', color: '#A78BFA', border: '1px solid #A78BFA' };
+    if (isBullish) return { background: 'var(--color-muted-bg)', color: 'var(--color-accent)', border: '1px solid var(--color-accent)' };
+    if (isBullish === false) return { background: 'var(--color-muted-bg)', color: 'var(--color-destructive)', border: '1px solid var(--color-destructive)' };
+    return { background: 'var(--color-secondary)', color: 'var(--color-foreground)' };
   };
 
   return (
@@ -71,7 +72,7 @@ const OptionsFlow = () => {
           <p style={{ padding: '20px' }}>{t.options.loading}</p>
         ) : (
           <table className="data-table" style={{ width: '100%' }}>
-            <thead style={{ position: 'sticky', top: 0, background: 'var(--bg-elevated)', zIndex: 1 }}>
+            <thead style={{ position: 'sticky', top: 0, background: 'var(--color-primary)', zIndex: 1 }}>
               <tr>
                 <th>{t.options.table.time}</th>
                 <th>{t.options.table.ticker}</th>
@@ -85,15 +86,10 @@ const OptionsFlow = () => {
               {flows.map((row) => (
                 <tr key={row.id}>
                   <td className="text-muted font-mono">{row.time}</td>
-                  <td style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: '1.1rem' }}>{row.ticker}</td>
+                  <td style={{ fontWeight: 700, color: 'var(--color-foreground)', fontSize: '1.1rem' }}>{row.ticker}</td>
                   <td>
-                    <span style={{
-                      ...getTypeStyle(row.type, row.isBullish),
-                      padding: '4px 8px',
-                      borderRadius: '6px',
-                      fontSize: '0.85rem',
-                      fontWeight: 600
-                    }}>
+                    <span className={`badge ${row.type === 'Dark Pool' ? '' : (row.isBullish ? 'badge-up' : 'badge-down')}`} style={row.type === 'Dark Pool' ? { background: 'var(--color-muted-bg)', color: '#A78BFA', border: '1px solid #A78BFA' } : {}}>
+                      {row.type === 'Dark Pool' ? <EyeOff size={12} /> : (row.isBullish ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />)}
                       {row.type}
                     </span>
                   </td>

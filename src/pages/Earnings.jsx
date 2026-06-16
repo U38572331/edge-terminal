@@ -54,7 +54,7 @@ const Earnings = () => {
 
       <div className="glass-panel">
         <table className="data-table">
-          <thead>
+          <thead style={{ position: 'sticky', top: 0, background: 'var(--color-primary)', zIndex: 1 }}>
             <tr>
               <th>{t.earnings.table.company}</th>
               <th>{t.earnings.table.ticker}</th>
@@ -68,11 +68,11 @@ const Earnings = () => {
             {earnings.map((row) => (
               <tr key={row.id}>
                 <td style={{ fontWeight: 500 }}>{row.company}</td>
-                <td style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{row.ticker}</td>
+                <td style={{ fontWeight: 700, color: 'var(--color-foreground)' }}>{row.ticker}</td>
                 <td>{row.date}</td>
-                <td className="font-mono" style={{ color: 'var(--accent-blue)' }}>{row.estEPS}</td>
+                <td className="font-mono" style={{ color: 'var(--color-on-primary)' }}>{row.estEPS}</td>
                 <td className="text-muted font-mono">{row.prevEPS}</td>
-                <td><span style={{ padding: '4px 8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', fontSize: '12px' }}>{row.status}</span></td>
+                <td><span className="badge" style={{ background: 'var(--color-secondary)', color: 'var(--color-muted-text)', border: '1px solid var(--color-border)' }}>{row.status}</span></td>
               </tr>
             ))}
           </tbody>

@@ -23,24 +23,24 @@ const StockChart = ({ ticker, height = 500, markers = [] }) => {
       chart = createChart(chartContainerRef.current, {
         layout: {
           background: { type: 'solid', color: 'transparent' },
-          textColor: '#8A8F98',
-          fontFamily: "'Fira Code', monospace",
+          textColor: '#94A3B8',
+          fontFamily: "'JetBrains Mono', monospace",
         },
         grid: {
-          vertLines: { color: 'rgba(255, 255, 255, 0.05)' },
-          horzLines: { color: 'rgba(255, 255, 255, 0.05)' },
+          vertLines: { color: '#334155' },
+          horzLines: { color: '#334155' },
         },
         width: chartContainerRef.current.clientWidth || 800,
         height: height,
       });
 
-      const candleSeries = chart.addSeries(CandlestickSeries, {
-        upColor: '#00e676',
-        downColor: '#ff5252',
-        borderVisible: false,
-        wickUpColor: '#00e676',
-        wickDownColor: '#ff5252',
-      });
+        const candleSeries = chart.addSeries(CandlestickSeries, {
+          upColor: '#22C55E',
+          downColor: '#EF4444',
+          borderVisible: false,
+          wickUpColor: '#22C55E',
+          wickDownColor: '#EF4444',
+        });
 
       try {
         // Fetch 5 years of data

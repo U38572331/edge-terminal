@@ -4,7 +4,7 @@
 
 ## Overview
 
-📥 **[Download Windows Installer (EXE)](https://github.com/U38572331/edge-terminal/releases/download/v1.0.0/Edge-Terminal-Setup.exe)**
+📥 **[Download Windows Installer (EXE)](https://github.com/U38572331/edge-terminal/releases/download/v2.0.0/Edge-Terminal-Setup-2.0.0.exe)**
 
 Edge Terminal is an institutional-grade, cross-platform financial trading dashboard built with React, Vite, and Electron. Designed to simulate a high-end proprietary trading terminal, it delivers real-time market data visualization, options flow analysis, and corporate insider tracking in a highly optimized, aesthetically refined Glassmorphism interface.
 
@@ -51,7 +51,7 @@ npm run electron:build
 
 ## 專案概述
 
-📥 **[下載 Windows 安裝檔 (EXE)](https://github.com/U38572331/edge-terminal/releases/download/v1.0.0/Edge-Terminal-Setup.exe)**
+📥 **[下載 Windows 安裝檔 (EXE)](https://github.com/U38572331/edge-terminal/releases/download/v2.0.0/Edge-Terminal-Setup-2.0.0.exe)**
 
 Edge Terminal 是一套採用 React、Vite 與 Electron 建構的機構級跨平台金融看盤終端機。專為模擬頂級自營交易室終端機而設計，結合即時市場數據視覺化、選擇權資金流分析與企業內部交易追蹤，並搭載高度優化且具備現代美感的擬玻璃透視 (Glassmorphism) 使用者介面。
 

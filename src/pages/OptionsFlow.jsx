@@ -53,10 +53,10 @@ const OptionsFlow = () => {
   }, []);
 
   const getTypeStyle = (type, isBullish) => {
-    if (type === 'Dark Pool') return { background: 'rgba(179, 136, 255, 0.2)', color: 'var(--accent-purple)', border: '1px solid var(--accent-purple)' };
-    if (isBullish) return { background: 'rgba(0, 230, 118, 0.1)', color: 'var(--accent-up)', border: '1px solid var(--accent-up)' };
-    if (isBullish === false) return { background: 'rgba(255, 82, 82, 0.1)', color: 'var(--accent-down)', border: '1px solid var(--accent-down)' };
-    return { background: 'var(--bg-panel-solid)', color: 'var(--text-primary)' };
+    if (type === 'Dark Pool') return { background: 'rgba(179, 136, 255, 0.1)', color: 'var(--accent-purple)', border: '1px solid var(--accent-purple)' };
+    if (isBullish) return { background: 'rgba(34, 197, 94, 0.1)', color: 'var(--accent-up)', border: '1px solid var(--accent-up)' };
+    if (isBullish === false) return { background: 'rgba(239, 68, 68, 0.1)', color: 'var(--accent-down)', border: '1px solid var(--accent-down)' };
+    return { background: 'var(--bg-elevated)', color: 'var(--text-primary)' };
   };
 
   return (
@@ -71,7 +71,7 @@ const OptionsFlow = () => {
           <p style={{ padding: '20px' }}>{t.options.loading}</p>
         ) : (
           <table className="data-table" style={{ width: '100%' }}>
-            <thead style={{ position: 'sticky', top: 0, background: 'var(--bg-panel)', backdropFilter: 'var(--glass-blur)', zIndex: 1 }}>
+            <thead style={{ position: 'sticky', top: 0, background: 'var(--bg-elevated)', zIndex: 1 }}>
               <tr>
                 <th>{t.options.table.time}</th>
                 <th>{t.options.table.ticker}</th>
@@ -84,7 +84,7 @@ const OptionsFlow = () => {
             <tbody>
               {flows.map((row) => (
                 <tr key={row.id}>
-                  <td className="text-muted" style={{ fontFamily: 'monospace' }}>{row.time}</td>
+                  <td className="text-muted font-mono">{row.time}</td>
                   <td style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: '1.1rem' }}>{row.ticker}</td>
                   <td>
                     <span style={{
@@ -97,12 +97,11 @@ const OptionsFlow = () => {
                       {row.type}
                     </span>
                   </td>
-                  <td style={{ fontFamily: 'monospace' }}>{row.strikeExp}</td>
-                  <td style={{ 
-                    fontFamily: 'monospace', 
+                  <td className="font-mono">{row.strikeExp}</td>
+                  <td className="font-mono" style={{ 
                     fontSize: '1.05rem', 
                     fontWeight: 700,
-                    color: row.premium.includes('M') ? (parseFloat(row.premium.replace('$', '').replace('M', '')) > 10 ? '#ffd700' : 'inherit') : 'inherit'
+                    color: row.premium.includes('M') ? (parseFloat(row.premium.replace('$', '').replace('M', '')) > 10 ? '#FFD600' : 'inherit') : 'inherit'
                   }}>
                     {row.premium}
                   </td>

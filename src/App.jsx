@@ -17,6 +17,8 @@ function App() {
         <div className="app-container">
           <Sidebar />
           <main className="main-content">
+            <div className="ambient-blob blob-1"></div>
+            <div className="ambient-blob blob-2"></div>
             <Routes>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />

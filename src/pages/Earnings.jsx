@@ -70,8 +70,8 @@ const Earnings = () => {
                 <td style={{ fontWeight: 500 }}>{row.company}</td>
                 <td style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{row.ticker}</td>
                 <td>{row.date}</td>
-                <td style={{ color: 'var(--accent-blue)' }}>{row.estEPS}</td>
-                <td className="text-muted">{row.prevEPS}</td>
+                <td className="font-mono" style={{ color: 'var(--accent-blue)' }}>{row.estEPS}</td>
+                <td className="text-muted font-mono">{row.prevEPS}</td>
                 <td><span style={{ padding: '4px 8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', fontSize: '12px' }}>{row.status}</span></td>
               </tr>
             ))}

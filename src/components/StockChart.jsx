@@ -23,11 +23,12 @@ const StockChart = ({ ticker, height = 500, markers = [] }) => {
       chart = createChart(chartContainerRef.current, {
         layout: {
           background: { type: 'solid', color: 'transparent' },
-          textColor: '#8b949e',
+          textColor: '#8A8F98',
+          fontFamily: "'Fira Code', monospace",
         },
         grid: {
-          vertLines: { color: 'rgba(116, 177, 190, 0.1)' },
-          horzLines: { color: 'rgba(116, 177, 190, 0.1)' },
+          vertLines: { color: 'rgba(255, 255, 255, 0.05)' },
+          horzLines: { color: 'rgba(255, 255, 255, 0.05)' },
         },
         width: chartContainerRef.current.clientWidth || 800,
         height: height,

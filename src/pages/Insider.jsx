@@ -55,7 +55,7 @@ const Insider = () => {
     {
       time: selectedTrade.date,
       position: selectedTrade.type === 'Buy' ? 'belowBar' : 'aboveBar',
-      color: selectedTrade.type === 'Buy' ? '#00e676' : '#ff5252',
+      color: selectedTrade.type === 'Buy' ? '#22C55E' : '#EF4444',
       shape: selectedTrade.type === 'Buy' ? 'arrowUp' : 'arrowDown',
       text: `${selectedTrade.type} by ${selectedTrade.insider} (${selectedTrade.role})`,
     }
@@ -74,7 +74,7 @@ const Insider = () => {
             <p style={{ padding: '20px' }}>{t.insider.loading}</p>
           ) : (
             <table className="data-table" style={{ width: '100%' }}>
-              <thead style={{ position: 'sticky', top: 0, background: 'var(--bg-panel-solid)', zIndex: 1 }}>
+              <thead style={{ position: 'sticky', top: 0, background: 'var(--bg-elevated)', zIndex: 1 }}>
                 <tr>
                   <th>{t.insider.table.insider}</th>
                   <th>{t.insider.table.ticker}</th>
@@ -90,7 +90,7 @@ const Insider = () => {
                     onClick={() => setSelectedTrade(row)}
                     style={{ 
                       cursor: 'pointer',
-                      background: selectedTrade?.id === row.id ? 'rgba(0, 176, 255, 0.1)' : 'transparent',
+                      background: selectedTrade?.id === row.id ? 'rgba(94, 106, 210, 0.15)' : 'transparent',
                       borderLeft: selectedTrade?.id === row.id ? '3px solid var(--accent-blue)' : '3px solid transparent'
                     }}
                   >
@@ -100,7 +100,7 @@ const Insider = () => {
                     <td style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{row.ticker}</td>
                     <td className={row.type === 'Buy' ? 'text-up' : 'text-down'} style={{ fontWeight: 600 }}>{row.type}</td>
                     <td>{row.date}</td>
-                    <td style={{ fontFamily: 'monospace', fontSize: '0.95rem' }}>{row.amount}</td>
+                    <td className="font-mono" style={{ fontSize: '0.95rem' }}>{row.amount}</td>
                   </tr>
                 ))}
               </tbody>

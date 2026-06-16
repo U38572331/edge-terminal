@@ -43,16 +43,17 @@ const Sidebar = () => {
             justifyContent: 'center',
             gap: '8px',
             padding: '10px',
-            background: 'var(--bg-panel-solid)',
+            background: 'var(--bg-elevated)',
             color: 'var(--text-primary)',
             border: '1px solid var(--border-color)',
-            borderRadius: '8px',
+            borderRadius: '12px',
             cursor: 'pointer',
             fontSize: '0.9rem',
-            transition: 'background 0.2s'
+            transition: 'background var(--transition-speed) var(--easing)',
+            fontFamily: 'var(--font-family)',
           }}
-          onMouseOver={(e) => e.currentTarget.style.background = 'var(--accent-blue)'}
-          onMouseOut={(e) => e.currentTarget.style.background = 'var(--bg-panel-solid)'}
+          onMouseOver={(e) => e.currentTarget.style.background = 'rgba(94, 106, 210, 0.2)'}
+          onMouseOut={(e) => e.currentTarget.style.background = 'var(--bg-elevated)'}
         >
           <Globe size={18} />
           {lang === 'zh' ? 'Switch to English' : '切換至中文'}
